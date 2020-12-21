@@ -1,6 +1,4 @@
-<!DOCTYPE html><html><head><title>WIP #2</title></head><body><script>
-var change = false;
-</script>
+<!DOCTYPE html><html><head><title>WIP #2</title></head><body>
 
 
  
@@ -19,6 +17,63 @@ var change = false;
             }
 body{
 font-family: 'Mountains of Christmas', cursive;
+}
+.overlay {
+ font-family: 'Lato', sans-serif;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+.animated_rainbow_1 {
+    transform: translate(0%, 250%);
+    font-size: 42px;
+    font-family: Arial Black, Gadget, sans-serif;
+    background-image: -webkit-linear-gradient(left, #f00, #ff2b00, #f50, #ff8000, #fa0, #ffd500, #ff0, #d4ff00, #af0, #80ff00, #5f0, #2bff00, #0f0, #00ff2a, #0f5, #00ff80, #0fa, #00ffd5, #0ff, #00d5ff, #0af, #0080ff, #05f, #002aff, #00f, #2b00ff, #50f, #8000ff, #a0f, #d400ff, #f0f, #ff00d4, #f0a, #ff0080, #f05, #ff002b, #f00);
+    -webkit-animation: animatedBackground_a 5s linear infinite alternate;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #0000;
+}
+
+@keyframes animatedBackground_a {
+    0% { background-position: 0 0 }
+    100% { background-position: -500px 0 }
 }
 #code123 {
 position: absolute;     
@@ -257,16 +312,26 @@ float:left;
    <h1>Type code123 into Start</h1>
     </div> <!-- Page 4                                                 -->
   <div id = "page5">
-   <h4>Press Ctrl+Shift+i<br>Then Change<br> Var Change = false <br>to<br> var change = true</h4>
+  <h3>Click <a target="_blank" href = "https://bit.ly/clovenbob">Here</a> to find your code</h3>
+  <input placeholder = "Code" id = "gitcode">
     </div> <!-- Page 5                                                 -->
   <div id = "page6">
-   <h1>Coming Soon!</h1>
+   <h1>Don't Click <a href = "https://bit.ly/3mJgF9o">Here</a></h1>
+   <input placeholder = "Don't Put A Code Here" id = "dont">
+    </div> <!-- Page 6                                                 -->
+  <div id = "page7">
+   <div class="animated_rainbow_1">YOU WIN!!!!!!</div>
     </div> <!-- Page 6                                                 -->
   <div id = "home">
     <button id = "button22" id = "dcm">Don't Click me</button>
     <input id = "code123" placeholder = "???">
     </div> <!-- Homepage                                               -->
   <div id = "load" style = "height: 55px;">
+  <div id="myNav" class="overlay">
+  <div class="overlay-content">
+    <input placeholder = "Passcode" id = "passcode" type = "password">
+  </div>
+</div>
     <h1 class = "mc">
     A Normal Webpage
   </h1>
@@ -276,7 +341,7 @@ float:left;
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $("#load").show();
-$("#home, #page2, #page3, #page4, #page5, #page6").hide();
+$("#home, #page2, #page3, #page4, #page5, #page6, #page7").hide();
 
 $("#button").on("click", function(){
 $("#load").hide();
@@ -311,11 +376,35 @@ $("#home").hide();
 $("#page5").show();
 }
 }})
-
-setInterval(function(){ if ( Boolean(change) == true) {
+$("#gitcode").keypress(function(){
+if (event.key == "Enter") {
+if ($("#gitcode").val() == "gitcode") {
+$("#page5").hide();
 $("#page6").show();
-$("#home, #page2, #page3, #page4, #page5, #load").hide();
-} }, 1000);
+}
+}})
+$("#dont").keypress(function(){
+if (event.key == "Enter") {
+if ($("#dont").val() == "rickroll") {
+$("#page6").hide();
+$("#page7").show();
+}
+}})
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+  document.getElementById("myNav").style.height = "99%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+openNav();
+$("#passcode").keypress(function(){
+if (event.key == "Enter") {
+if ($("#passcode").val() == "merrychristmas") {
+closeNav();
+}
+}})
 </script>
 </div> <!-- JavaScript                                             -->
   
